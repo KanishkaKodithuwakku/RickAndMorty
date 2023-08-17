@@ -1,13 +1,32 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useRef } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import Button from "./Button";
 import Avatar from "./Avatar";
-
+import { BiRadioCircleMarked } from "react-icons/bi";
+import DescriptionBox from "./DescriptionBox";
+import FavouriteIcon from "./FavouriteIcon";
+import EpisodeList from "./EpisodeList";
 // AiOutlineHeart
 
-const Card = ({handleOnClick}) => {
+const Card = ({ data, handleSetFavorites }) => {
+  const { id, name, status, image, gender, species, episode } = data;
+  const [visible, setVisible] = useState();
+  const statusIcon = (
+    <BiRadioCircleMarked
+      style={{
+        color:
+          status === "Alive" ? "green" : status === "Dead" ? "red" : "#a5a5a5",
+        fontSize: 25,
+      }}
+    />
+  );
+
+  const showepisodes = useRef(null);
+
+  const handleOnClick = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div className="col-md-6">
       <div
@@ -18,50 +37,40 @@ const Card = ({handleOnClick}) => {
           <div className="row">
             {/* image area */}
             <div className="col-md-4">
-              <Avatar
-                path={`https://rickandmortyapi.com/api/character/avatar/2.jpeg`}
-              />
+              <Avatar path={image} />
             </div>
             {/* Description */}
             <div className="col-md-6">
               <div className="row">
                 <div className="col-md-12">
-                  <h5>Name</h5>
+                  <h5>{name}</h5>
                 </div>
               </div>
 
-              <div className="row">
-                <div className="col-md-2">*</div>
-                <div className="col-md-10">Active Status</div>
-              </div>
+              <DescriptionBox text={statusIcon} value={status} />
+              <DescriptionBox text={`Gender`} value={gender} />
+              <DescriptionBox text={`Dimention`} value={species} />
 
-              <div className="row">
-                <div className="col-md-6">Gender</div>
-                <div className="col-md-6">Male</div>
-              </div>
-
-              <div className="row">
-                <div className="col-md-6">Dimention</div>
-                <div className="col-md-6">4555C</div>
-              </div>
-
-              <Button handleOnClick={handleOnClick} />
+              <Button handleOnClick={() => handleOnClick()} />
             </div>
             {/* Fav Icon */}
             <div className="col-md-2">
-              <div
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  borderRadius: "50%",
-                  border: "1px solid black",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <AiOutlineHeart />
-              </div>
+              <FavouriteIcon
+                id={id}
+                icon={<AiOutlineHeart />}
+                handleIconClick={handleSetFavorites}
+              />
+            </div>
+          </div>
+
+          <div
+            className="row"
+            style={{ display: visible ? "block" : "none" }}
+            ref={showepisodes}
+          >
+            <div className="col-md-8 offset-4">
+              <h6>Episodes</h6>
+              <EpisodeList data={episode} />
             </div>
           </div>
         </div>
