@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const FavouriteIcon = ({icon}) => {
+const FavouriteIcon = ({ id, icon, handleIconClick }) => {
+  const [favorite, setFavorite] = useState(false);
+ 
+ const handleIconClickEvent = () => {
+   const isFavorited = handleIconClick(id);
+   setFavorite(isFavorited);
+ };
+
+
   return (
     <>
-      <div
+      <button
+        onClick={() => handleIconClickEvent(id)}
         style={{
           width: "25px",
           height: "25px",
@@ -12,10 +21,13 @@ const FavouriteIcon = ({icon}) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          fontSize: 20,
+          padding: 0,
+          backgroundColor: favorite ? "red" : "white",
         }}
       >
         {icon}
-      </div>
+      </button>
     </>
   );
 };

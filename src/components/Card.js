@@ -8,8 +8,8 @@ import FavouriteIcon from "./FavouriteIcon";
 import EpisodeList from "./EpisodeList";
 // AiOutlineHeart
 
-const Card = ({ data }) => {
-  const { name, status, image, gender, species, episode } = data;
+const Card = ({ data, handleSetFavorites }) => {
+  const { id, name, status, image, gender, species, episode } = data;
   const [visible, setVisible] = useState();
   const statusIcon = (
     <BiRadioCircleMarked
@@ -24,7 +24,7 @@ const Card = ({ data }) => {
   const showepisodes = useRef(null);
 
   const handleOnClick = () => {
-   setVisible(!visible);
+    setVisible(!visible);
   };
 
   return (
@@ -55,11 +55,19 @@ const Card = ({ data }) => {
             </div>
             {/* Fav Icon */}
             <div className="col-md-2">
-              <FavouriteIcon icon={<AiOutlineHeart />} />
+              <FavouriteIcon
+                id={id}
+                icon={<AiOutlineHeart />}
+                handleIconClick={handleSetFavorites}
+              />
             </div>
           </div>
 
-          <div className="row" style={{ display: visible ?"block":'none' }} ref={showepisodes}>
+          <div
+            className="row"
+            style={{ display: visible ? "block" : "none" }}
+            ref={showepisodes}
+          >
             <div className="col-md-8 offset-4">
               <h6>Episodes</h6>
               <EpisodeList data={episode} />
