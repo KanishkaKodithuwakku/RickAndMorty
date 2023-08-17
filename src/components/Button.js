@@ -4,7 +4,7 @@ const Button = ({handleOnclick}) => {
     return (
       <div style={{ padding: 2 }}>
         <button
-          className="btn btn-primary rounded-pill btn-sm"
+          className="btn btn-warning rounded-pill btn-sm"
           onClick={handleOnclick}
         >
           More...
