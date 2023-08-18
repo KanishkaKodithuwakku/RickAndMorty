@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/css/main.00cf884c.css",
+    "main.js": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/js/main.aaa9bba2.js",
+    "static/js/787.0ab6cf9c.chunk.js": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/js/787.0ab6cf9c.chunk.js",
+    "index.html": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/index.html",
+    "main.00cf884c.css.map": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/css/main.00cf884c.css.map",
+    "main.aaa9bba2.js.map": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/js/main.aaa9bba2.js.map",
+    "787.0ab6cf9c.chunk.js.map": "/https//KanishkaKodithuwakku.github.io/rick_morty-app/static/js/787.0ab6cf9c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00cf884c.css",
+    "static/js/main.aaa9bba2.js"
+  ]
+}
