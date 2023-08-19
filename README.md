@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Rick and Morty React App
 
 ## <a href="https://kanishkakodithuwakku.github.io/RickAndMorty/">Demo Link</a>
 
