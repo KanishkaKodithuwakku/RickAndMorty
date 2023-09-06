@@ -2,6 +2,8 @@
 
 ## <a href="https://kanishkakodithuwakku.github.io/RickAndMorty/">Demo Link</a>
 
+![App Screenshot](./public/rickyandmorty.png)
+
 This task explains the flow between parent and child components, detailing how state is passed from parent to child.
 
 The favoriteList state resides in App.js and is updated from a deeply nested child component. This will help elucidate the data flow within a React app.
